@@ -54,10 +54,10 @@
                             </ul>
                             <ul class="menu-links">
                                 <li><a href="javascript:void(0)">Shop</a></li>
-                                <li><a href="javascript:void(0)">Rifles</a></li>
-                                <li><a href="javascript:void(0)">SMG</a></li>
-                                <li><a href="javascript:void(0)">Pistols</a></li>
-                                <li><a href="javascript:void(0)">Heavy</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php">Rifles</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php">SMG</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php">Pistols</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php">Heavy</a></li>
                                 <li><a href="./Login.php">Login</a></li>
                                 <li><a href="./Register.php">Register</a></li>
                             </ul>
@@ -97,6 +97,7 @@
                             <input id="phone" class="form-control" type="text" placeholder="Enter your mobile no" name="phone">
                         </div>
                     </div>
+                    <a href="#" class="button"> Sign Up </a>
                 </form>
             </div>
         </div>
