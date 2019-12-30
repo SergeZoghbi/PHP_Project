@@ -94,7 +94,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="#"> <span class="ti-more"></span></a>
+                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>
