@@ -23,7 +23,7 @@ include "Connection.php";
  function returnWeaponsByID($id){
 
      $conn = connect();
-     $sql="call getWeaponsByID('".$id."')";
+     $sql="call getWeaponByID('".$id."')";
      $result = $conn->query($sql);
 
 
