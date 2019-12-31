@@ -83,59 +83,69 @@
 
 <section class="shop-single page-section-ptb">
     <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="slider-slick">
-                            <div class="slider slider-for detail-big-car-gallery">
-                                <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/shop/detail/big/01.jpg" alt="">
-                            </div>
+        <?php
+        include "../../BusinessLayer/WeaponsManager.php";
+        $weapon = returnWeaponsFromLogicByID($_GET["id"]);
 
+        echo "        <div class=\"row\">
+            <div class=\"col-md-9\">
+                <div class=\"row\">
+                    <div class=\"col-md-6\">
+                        <div class=\"slider-slick\">
+                            <div class=\"slider slider-for detail-big-car-gallery\">
+                                <img class=\"img-fluid\" src=\"$weapon[PIC_URL]\" alt=\"\">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="product-detail clearfix">
-                            <div class="product-detail-title mb-2">
-                                <h4 class="mb-1"> Seo comunity</h4>
+                    <div class=\"col-md-6\">
+                        <div class=\"product-detail clearfix\">
+                            <div class=\"product-detail-title mb-2\">
+                                <h4 class=\"mb-1\"> $weapon[NAME]</h4>
                             </div>
-                            <div class="clearfix mb-3">
-                                <div class="product-detail-price"><ins>$24.99</ins></div>
+                            <div class=\"clearfix mb-3\">
+                                <div class=\"product-detail-price\"><ins>$weapon[PRICE]</ins></div>
                             </div>
-                            <div class="product-detail-quantity clearfix mb-3">
-                                <div class="input-group">
-                      <span class="input-group-btn">
-                          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                              <span class="ti-minus"></span>
+                            <div class=\"product-detail-quantity clearfix mb-3\">
+                                <div class=\"input-group\">
+                      <span class=\"input-group-btn\">
+                          <button type=\"button\" class=\"btn btn-default btn-number\" data-type=\"minus\" data-field=\"quant[1]\">
+                              <span class=\"ti-minus\"></span>
                           </button>
                       </span>
-                                    <input type="number" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                    <span class="input-group-btn">
-                          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                              <span class="ti-plus"></span>
+                                    <input type=\"number\" name=\"qty\" class=\"form-control input-number\" value=\"1\" min=\"1\" max=\"10\">
+                                    <span class=\"input-group-btn\">
+                         <button type=\"button\" class=\"btn btn-default btn-number\" data-type=\"plus\" data-field=\"quant[1]\">
+                             <span class=\"ti-plus\"></span>
                           </button>
                       </span>
                                 </div>
-                                <div class="product-detail add-to-cart">
-                                    <a class="button" href="#">Add to cart</a>
+                                <div class=\"product-detail add-to-cart\">
+                                    <a class=\"button\" href=\"#\">Add to cart</a>
                                 </div>
                             </div>
-                            <div class="product-detail-des mb-2">
-                                <ul class="list-style-none disc">
-                                    <li>Voluptatem provident</li>
-                                    <li>Aperiam consequuntur</li>
-                                    <li>Officia doloremque</li>
+                            <div class=\"product-detail-des mb-2\">
+                                <ul class=\"list-style-none disc\">
+                                    <li>Country Origin : $weapon[ORIGIN]</li>
+                                    <li>Calibre : $weapon[CALIBRE]</li>
+                                    <li>Magazine Capacity : $weapon[MAGAZINE_CAPACITY]</li>
+                                    <li>Reload Time : $weapon[RELOAD_TIME]</li>
+                                    <li>Accurate Range : $weapon[ACCURATE_RANGE]</li>
+                                    <li>Rate of Fire : $weapon[RATE_OF_FIRE]</li>
                                 </ul>
                             </div>
-                            <div class="product-detail-meta">
-                                <span>SKU: 8465415 </span>
-                                <span>Category: <a href="#">SEO book</a>  </span>
+                            <div class=\"product-detail-meta\">
+                                <span>SKU: ".rand(5000,9000)." </span>
+                                <span>Type: <a>$weapon[TYPE]</a>  </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+";
+
+
+        ?>
     </div>
 </section>
 
