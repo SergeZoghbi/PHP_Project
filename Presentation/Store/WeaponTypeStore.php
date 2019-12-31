@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,8 +63,17 @@
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
-                                <li><a href="../Login/Login.php">Login</a></li>
-                                <li><a href="../Login/Register.php">Register</a></li>
+                                <?php
+                                if(isset($_SESSION['USER_ID'])){
+                                    echo "<li><a href=\"#\"><span class=\"ti-shopping-cart\" style='width: 500px;height: 50px;'></span></a></li>";
+                                    echo "<li><a href=\"#\">Log out</a></li>";
+                                }else {
+                                    echo " <li><a href=\"../Login/Login.php\">Login</a></li>
+                                <li><a href=\"../Login/Register.php\">Register</a></li>";
+                                }
+                                ?>
+
+
                             </ul>
                         </div>
                     </div>

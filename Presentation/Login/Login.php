@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="min-height: 100% !important;
     height: 100%;">
@@ -92,20 +96,43 @@ register-form  -->
         <div class="row">
             <div class="col-lg-9">
                 <h4>Login To Your Account</h4>
-                <form class="gray-form mt-2 clearfix">
+                <form class="gray-form mt-2 clearfix" action="Login.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">User name* </label>
-                        <input id="name" class="form-control" type="text" placeholder="User name" name="web">
+                        <input id="name" class="form-control" type="text" placeholder="User name" name="USERNAME">
                     </div>
                     <div class="form-group">
                         <label for="Password">Password* </label>
                         <input id="Password" class="form-control" type="password" placeholder="Password"
-                               name="Password">
+                               name="PASSWORD">
                     </div>
-                    <a href="#" class="button"> Log in </a>
+                    <button class="button" type="submit"> Log in</button>
                 </form>
             </div>
         </div>
+
+        <?php
+
+        include "../../BusinessLayer/LoginManager.php";
+
+        if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
+
+            $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
+            if($result != -1){
+                $_SESSION['USER_ID'] = $result;
+                echo $_SESSION['USER_ID'];
+            }
+            if ($result == -1) {
+                echo " 
+                      <br>
+                      <br>
+                       <div class=\"alert alert-danger p-3 in\">
+                           <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">×</a>
+                           <strong>Authentication Failed!</strong> Wrong Username or password !
+                       </div>";
+            }
+        }
+        ?>
     </div>
 </section>
 
@@ -170,3 +197,4 @@ footer -->
 </body>
 
 </html>
+
