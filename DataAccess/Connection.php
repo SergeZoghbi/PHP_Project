@@ -3,7 +3,7 @@
 
 function connect(){
 
-    $servername = "localhost:3308";
+    $servername = "127.0.0.1:3308";
     $username = "root";
     $password = "123456";
     $dbname = "WebProgramingDB";
