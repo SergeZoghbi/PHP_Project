@@ -91,7 +91,7 @@ header -->
 
 <!--=================================
 register-form  -->
-<section class="login-form page-section-ptb">
+<section class="login-form page-section-ptb" style="padding-bottom: 250px">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -120,9 +120,8 @@ register-form  -->
             $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
             if($result != -1){
                 $_SESSION['USER_ID'] = $result;
-                echo $_SESSION['USER_ID'];
             }
-            if ($result == -1) {
+            else {
                 echo " 
                       <br>
                       <br>

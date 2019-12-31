@@ -1,36 +1,45 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template" />
-    <meta name="author" content="potenzaglobalsolutions.com" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="HTML5 Template"/>
+    <meta name="description" content="SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template"/>
+    <meta name="author" content="potenzaglobalsolutions.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico" />
+    <link rel="shortcut icon"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico"/>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/bootstrap.min.css"/>
 
     <!-- mega menu -->
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/mega-menu/mega_menu.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/mega-menu/mega_menu.css"/>
 
     <!-- font awesome -->
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/font-awesome.min.css"/>
 
     <!-- Themify icons -->
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css"/>
 
     <!-- main style -->
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css"/>
 
     <!-- Responsive style -->
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css" />
-
-
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css"/>
 
 
 </head>
@@ -74,40 +83,55 @@
         <div class="row">
             <div class="col-md-12">
                 <h4 class="mb-3">Register An Account</h4>
-                <form class="gray-form">
+                <form class="gray-form" action="Register.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="name">User Name* </label>
-                            <input class="form-control" type="text" placeholder="Choose your user name" name="web">
+                            <input class="form-control" type="text" placeholder="Choose your user name" name="USERNAME">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Password">Password* </label>
-                            <input class="form-control" type="password" placeholder="Password" name="Password">
+                            <input class="form-control" type="password" placeholder="Password" name="PASSWORD">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Password">Re-enter Password*</label>
-                            <input class="form-control" type="password" placeholder="Password" name="Password">
+                            <input class="form-control" type="password" placeholder="Password" name="RE_PASSWORD">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="email">Email *</label>
-                            <input class="form-control" type="text" placeholder="Enter your email" name="email">
+                            <input class="form-control" type="text" placeholder="Enter your email" name="EMAIL">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Mobile phone *</label>
-                            <input id="phone" class="form-control" type="text" placeholder="Enter your mobile no" name="phone">
+                            <input id="phone" class="form-control" type="number" placeholder="Enter your mobile no"
+                                   name="PHONE">
                         </div>
                     </div>
-                    <a href="#" class="button"> Sign Up </a>
+                    <button class="button" type="submit"> Sign Up</button>
                 </form>
             </div>
         </div>
+        <?php
+        include "../../BusinessLayer/RegisterManager.php";
+        if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD']) && isset($_POST['RE_PASSWORD']) && isset($_POST['EMAIL']) && isset($_POST['PHONE'])) {
+
+            $resultRegister = register($_POST['USERNAME'], $_POST['PASSWORD'], $_POST['EMAIL'], $_POST['PHONE']);
+            if ($resultRegister != -1) {
+                $_SESSION['USER_ID'] = $resultRegister;
+            } else {
+                echo "
+                     <br>
+                      <br>
+                       <div class=\"alert alert-danger p-3 in\">
+                           <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">×</a>
+                           <strong>Authentication Failed!</strong> Check Your Credentials
+                       </div>";
+            }
+        }
+        ?>
     </div>
 </section>
-<!--=================================
-register-form  -->
 
-<!--=================================
-footer -->
 
 <footer class="footer footer-topbar page-section-pt">
     <div class="container">
@@ -142,21 +166,26 @@ footer -->
 
 
 <!-- jquery  -->
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/popper.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/jquery.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/popper.min.js"></script>
 
 <!-- bootstrap -->
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/bootstrap.min.js"></script>
 
 <!-- mega-menu -->
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/mega-menu/mega_menu.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/mega-menu/mega_menu.js"></script>
 
 <!-- select -->
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/select/jquery-select.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/select/jquery-select.js"></script>
 
 <!-- custom -->
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
-
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
 
 
 </body>
