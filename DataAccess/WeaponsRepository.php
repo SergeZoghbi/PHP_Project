@@ -1,10 +1,6 @@
 <?php
 include "Connection.php";
 
-// if(isset($_GET['TYPE'])){
-//     echo returnWeaponsByType($_GET['TYPE']);
-// }
-
  function returnWeaponsByType($type){
 
      $conn = connect();

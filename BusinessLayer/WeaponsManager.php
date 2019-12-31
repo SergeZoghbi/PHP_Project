@@ -9,8 +9,4 @@ function returnWeaponsFromLogic($type){
 function returnWeaponsFromLogicByID($id){
     return returnWeaponsByID($id);
 }
-
-
-
-
 ?>
