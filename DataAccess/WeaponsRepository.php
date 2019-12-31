@@ -20,4 +20,17 @@ include "Connection.php";
      }
  }
 
+ function returnWeaponsByID($id){
+
+     $conn = connect();
+     $sql="call getWeaponsByID('".$id."')";
+     $result = $conn->query($sql);
+
+
+         while($row = $result->fetch_assoc()){
+             return json_encode($row);
+         }
+
+ }
+
 ?>

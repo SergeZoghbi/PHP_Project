@@ -80,7 +80,7 @@
 
             echo returnWeaponsFromLogic($_GET['TYPE']);
 
-
+            echo returnWeaponsFromLogicByID(1);
 
 
             ?>
