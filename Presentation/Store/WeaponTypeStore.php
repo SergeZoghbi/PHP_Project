@@ -74,39 +74,39 @@
 <section class="case-studies popup-gallery page-section-ptb">
     <div class="container">
         <div class="row">
-
             <?php
             include "../../BusinessLayer/WeaponsManager.php";
 
-//            echo returnWeaponsFromLogic($_GET['TYPE']);
+            $arrayofWeapons = returnWeaponsFromLogic($_GET['TYPE']);
 
-//            echo returnWeaponsFromLogicByID(1);
-
-
-            ?>
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
+            foreach ($arrayofWeapons as $weapon) {
+                echo "      
+        <div class=\"col-md-4\">
+                <div class=\"studies-entry mt-3\">
+                    <div class=\"entry-image clearfix\">
+                        <img class=\"img-fluid\" src=\"$weapon[PIC_URL]\" alt=\"$weapon[NAME]\" width=\"800\" height=\"600\">
+                        <div class=\"entry-overlay\">
+                            <a class=\"popup-img\" href=\"$weapon[PIC_URL]\" > <span class=\"ti-zoom-in\"></span></a>
                         </div>
                     </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
+                    <div class=\"entry-detail\">
+                        <div class=\"entry-content mb-1\">
+                            <a>$weapon[NAME]</a>
                         </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
+                        <div class=\"entry-bottom mt-1 clearfix\">
+                            <ul class=\"entry-tag list-style-none\">
+                                <li>$weapon[PRICE]</li>
                             </ul>
-                            <div class="entry-like float-right">
-                                <a onclick="window.location = './SingleStore.php?id=4';"> <span class="ti-more"></span></a>
+                            <div class=\"entry-like float-right\">
+                                <a onclick=\"window.location = './SingleStore.php?id=$weapon[ID]';\"> <span class=\"ti-more\"></span></a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>";
+            }
+            ?>
+
         </div>
 </section>
 

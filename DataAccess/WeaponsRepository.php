@@ -21,7 +21,7 @@ include "Connection.php";
      } else {
          return -1;
      }
-     return json_encode($tempArray);
+     return $tempArray;
  }
 
 
