@@ -2,15 +2,15 @@
 
 include 'connection.php';
 
-if(isset($_POST["USERNAME"])&&isset($_POST["PASSWORD"])){
+function loginDB($username,$password){
 
     $conn = connect();
 
-    $sql = "select loginFct('".$_POST["USERNAME"]."','".$_POST["PASSWORD"]."') as loggedIn";
+    $sql = "select loginFct('".$username."','".$password."') as loggedIn";
     $result = $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
-        echo $row['loggedIn'];
+        return $row['loggedIn'];
     }
 
 }
