@@ -33,7 +33,7 @@ include "Connection.php";
 
 
          while($row = $result->fetch_assoc()){
-             return json_encode($row);
+             return $row;
          }
 
  }
