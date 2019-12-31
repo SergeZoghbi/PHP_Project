@@ -11,14 +11,19 @@ include "Connection.php";
      $sql="call getWeaponsByType('".$type."')";
      $result = $conn->query($sql);
 
+     $tempArray = Array();
+
      if($result->num_rows >0){
          while($row = $result->fetch_assoc()){
-             return json_encode($row);
+              array_push($tempArray, array( "ID" => $row["ID"] , "NAME" => $row["NAME"]
+                                                ,"PRICE" => $row["PRICE"], "PIC_URL" => $row["PIC_URL"]));
          }
      } else {
          return -1;
      }
+     return json_encode($tempArray);
  }
+
 
  function returnWeaponsByID($id){
 
