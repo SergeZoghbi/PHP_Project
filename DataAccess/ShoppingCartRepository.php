@@ -2,7 +2,7 @@
 
 include "Connection.php";
 
-function getItemsFromShoppingCart($userID){
+function getItemsFromShoppingCartDB($userID){
 
     $conn = connect();
     $sql = "call getItemsInShoppingCart(".$userID.");";
@@ -23,7 +23,7 @@ function getItemsFromShoppingCart($userID){
 }
 
 
-function insertItemIntoCart($userID,$itemID,$quantityRequested){
+function insertItemIntoCartDB($userID,$itemID,$quantityRequested){
 
     $conn = connect();
     $sql = "call addItemIntoCart(".$userID.",".$itemID.",".$quantityRequested.");";
@@ -32,7 +32,7 @@ function insertItemIntoCart($userID,$itemID,$quantityRequested){
 }
 
 
-function deleteItemFromCart($userID,$itemID,$quantityToDelete){
+function deleteItemFromCartDB($userID,$itemID,$quantityToDelete){
 
     $conn = connect();
     $sql = "call deleteItemFromShopingCard(".$userID.",".$itemID.",".$quantityToDelete.");";
