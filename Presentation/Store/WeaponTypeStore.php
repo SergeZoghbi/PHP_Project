@@ -62,7 +62,6 @@
 
                                 <li><a href="../Login/Login.php">Login</a></li>
                                 <li><a href="../Login/Register.php">Register</a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -94,7 +93,7 @@
                                 <li>$2500</li>
                             </ul>
                             <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
+                                <a onclick="window.location = './SingleStore.php?id=4';"> <span class="ti-more"></span></a>
                             </div>
                         </div>
                     </div>

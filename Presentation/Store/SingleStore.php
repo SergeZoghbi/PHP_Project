@@ -168,7 +168,11 @@ shop -->
 <!-- custom -->
 <script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
 
+<script>
 
+    const url = new URL(window.location.href);
+    console.log(url.searchParams.get("id"));
+</script>
 
 </body>
 
