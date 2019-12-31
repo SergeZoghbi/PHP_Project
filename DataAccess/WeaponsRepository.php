@@ -21,7 +21,7 @@ include "Connection.php";
      } else {
          return -1;
      }
-     return json_encode($tempArray);
+     return $tempArray;
  }
 
 
@@ -33,7 +33,7 @@ include "Connection.php";
 
 
          while($row = $result->fetch_assoc()){
-             return json_encode($row);
+             return $row;
          }
 
  }

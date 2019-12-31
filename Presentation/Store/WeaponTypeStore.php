@@ -78,9 +78,9 @@
             <?php
             include "../../BusinessLayer/WeaponsManager.php";
 
-//            echo returnWeaponsFromLogic($_GET['TYPE']);
+            print_r(returnWeaponsFromLogic($_GET['TYPE'])[0]);
 
-//            echo returnWeaponsFromLogicByID(1);
+//            print_r(returnWeaponsFromLogicByID(1));
 
 
             ?>
