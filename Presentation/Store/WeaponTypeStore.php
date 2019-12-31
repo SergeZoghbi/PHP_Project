@@ -55,11 +55,10 @@
                             </ul>
                             <ul class="menu-links">
                                 <li><a href="javascript:void(0)">Shop</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Rifles</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">SMG</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Pistols</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Heavy</a></li>
-
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <li><a href="../Login/Login.php">Login</a></li>
                                 <li><a href="../Login/Register.php">Register</a></li>
                             </ul>
@@ -76,6 +75,15 @@
     <div class="container">
         <div class="row">
 
+            <?php
+            include "../../BusinessLayer/WeaponsManager.php";
+
+            echo returnWeaponsFromLogic($_GET['TYPE']);
+
+
+
+
+            ?>
             <div class="col-md-4">
                 <div class="studies-entry mt-3">
                     <div class="entry-image clearfix">
@@ -99,199 +107,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="studies-entry mt-3">
-                    <div class="entry-image clearfix">
-                        <img class="img-fluid" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg" alt="">
-                        <div class="entry-overlay">
-                            <a class="popup-img" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/case-studies/01.jpg"> <span class="ti-zoom-in"></span></a>
-                        </div>
-                    </div>
-                    <div class="entry-detail">
-                        <div class="entry-content mb-1">
-                            <a href="#">Weapon Name</a>
-                        </div>
-                        <div class="entry-bottom mt-1 clearfix">
-                            <ul class="entry-tag list-style-none">
-                                <li>$2500</li>
-                            </ul>
-                            <div class="entry-like float-right">
-                                <a href="SingleStore.php"> <span class="ti-more"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
+        </div>
 </section>
 
 

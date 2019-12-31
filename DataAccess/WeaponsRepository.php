@@ -1,5 +1,5 @@
 <?php
-include 'Connection.php';
+include "Connection.php";
 
 // if(isset($_GET['TYPE'])){
 //     echo returnWeaponsByType($_GET['TYPE']);

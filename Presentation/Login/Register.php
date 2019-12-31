@@ -54,10 +54,10 @@
                             </ul>
                             <ul class="menu-links">
                                 <li><a href="javascript:void(0)">Shop</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Rifles</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">SMG</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Pistols</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Heavy</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <li><a href="./Login.php">Login</a></li>
                                 <li><a href="./Register.php">Register</a></li>
                             </ul>

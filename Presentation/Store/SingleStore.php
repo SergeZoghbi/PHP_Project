@@ -64,10 +64,10 @@
                             </ul>
                             <ul class="menu-links">
                                 <li><a href="javascript:void(0)">Shop</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Rifles</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">SMG</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Pistols</a></li>
-                                <li><a href="../Store/WeaponTypeStore.php">Heavy</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
+                                <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
 
                                 <li><a href="../Login/Login.php">Login</a></li>
                                 <li><a href="../Login/Register.php">Register</a></li>
@@ -167,12 +167,6 @@ shop -->
 
 <!-- custom -->
 <script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
-
-<script>
-
-    const url = new URL(window.location.href);
-    console.log(url.searchParams.get("id"));
-</script>
 
 </body>
 
