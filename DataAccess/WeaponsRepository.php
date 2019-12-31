@@ -1,5 +1,5 @@
 <?php
-
+include 'Connection.php';
  if(isset($_GET['TYPE'])){
 
      $conn = connect();
