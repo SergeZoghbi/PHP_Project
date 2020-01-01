@@ -62,10 +62,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <?php
-                                if(isset($_SESSION['USER_ID'])){
+                                if (isset($_SESSION['USER_ID'])) {
                                     echo "<li><a href=\"#\"><i class='material-icons'>shopping_cart</i></a></li>";
                                     echo "<li><a href=\"HomeStore.php?action=logout\"><i class='material-icons'>power_settings_new</i></a></li>";
-                                }else {
+                                } else {
                                     echo " <li><a href=\"../Login/Login.php\">Login</a></li>
                                            <li><a href=\"../Login/Register.php\">Register</a></li>";
                                 }
@@ -78,11 +78,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         </nav>
     </div>
 </header>
-
-
-
-
-
 
 
 

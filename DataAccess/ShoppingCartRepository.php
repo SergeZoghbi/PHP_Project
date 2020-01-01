@@ -1,6 +1,6 @@
 <?php
 
-include "Connection.php";
+include_once "Connection.php";
 
 function getItemsFromShoppingCartDB($userID){
 
@@ -24,7 +24,6 @@ function getItemsFromShoppingCartDB($userID){
 
 
 function insertItemIntoCartDB($userID,$itemID,$quantityRequested){
-
     $conn = connect();
     $sql = "call addItemIntoCart(".$userID.",".$itemID.",".$quantityRequested.");";
     $result = $conn->query($sql);
