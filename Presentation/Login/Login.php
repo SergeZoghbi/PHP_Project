@@ -1,10 +1,20 @@
 <?php
 session_start();
+include "../../BusinessLayer/LoginManager.php";
+
+if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
+
+    $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
+   if($result != -1) {
+       $_SESSION['USER_ID'] = $result;
+        header('location:../Store/HomeStore.php');
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en" style="min-height: 100% !important;
-    height: 100%;">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -14,39 +24,22 @@ session_start();
     <meta name="author" content="potenzaglobalsolutions.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template</title>
-    <!-- Favicon -->
     <link rel="shortcut icon"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico"/>
-
-    <!-- bootstrap -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/bootstrap.min.css"/>
-
-    <!-- mega menu -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/mega-menu/mega_menu.css"/>
-
-    <!-- font awesome -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/font-awesome.min.css"/>
-
-    <!-- Themify icons -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css"/>
-
-    <!-- owl-carousel -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/owl-carousel/owl.carousel.css"/>
-
-    <!-- magnific-popup -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/magnific-popup/magnific-popup.css"/>
-
-    <!-- main style -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css"/>
-
-    <!-- Responsive style -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css"/>
 
@@ -61,7 +54,6 @@ session_start();
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
                                     <a><img id="logo_img"
@@ -70,7 +62,7 @@ session_start();
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="javascript:void(0)">Shop</a></li>
+                                <li><a href="../Store/HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
@@ -85,12 +77,6 @@ session_start();
         </nav>
     </div>
 </header>
-
-<!--=================================
-header -->
-
-<!--=================================
-register-form  -->
 <section class="login-form page-section-ptb" style="padding-bottom: 250px">
     <div class="container">
         <div class="row">
@@ -110,26 +96,15 @@ register-form  -->
                 </form>
             </div>
         </div>
-
         <?php
-
-        include "../../BusinessLayer/LoginManager.php";
-
-        if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
-
-            $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
-            if($result != -1){
-                $_SESSION['USER_ID'] = $result;
-            }
-            else {
-                echo " 
+        if (isset($result) && $result == -1) {
+            echo " 
                       <br>
                       <br>
                        <div class=\"alert alert-danger p-3 in\">
                            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">×</a>
                            <strong>Authentication Failed!</strong> Wrong Username or password !
                        </div>";
-            }
         }
         ?>
     </div>

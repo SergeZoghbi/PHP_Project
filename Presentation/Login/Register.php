@@ -1,6 +1,14 @@
 <?php
 session_start();
+include "../../BusinessLayer/RegisterManager.php";
+if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD']) && isset($_POST['RE_PASSWORD']) && isset($_POST['EMAIL']) && isset($_POST['PHONE'])) {
 
+    $resultRegister = register($_POST['USERNAME'], $_POST['PASSWORD'], $_POST['EMAIL'], $_POST['PHONE']);
+    if ($resultRegister != -1) {
+        $_SESSION['USER_ID'] = $resultRegister;
+        header('location:../Store/HomeStore.php');
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +61,6 @@ session_start();
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
                                     <a><img id="logo_img"
@@ -62,7 +69,7 @@ session_start();
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="javascript:void(0)">Shop</a></li>
+                                <li><a href="../Store/HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
@@ -112,13 +119,7 @@ session_start();
             </div>
         </div>
         <?php
-        include "../../BusinessLayer/RegisterManager.php";
-        if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD']) && isset($_POST['RE_PASSWORD']) && isset($_POST['EMAIL']) && isset($_POST['PHONE'])) {
-
-            $resultRegister = register($_POST['USERNAME'], $_POST['PASSWORD'], $_POST['EMAIL'], $_POST['PHONE']);
-            if ($resultRegister != -1) {
-                $_SESSION['USER_ID'] = $resultRegister;
-            } else {
+      if(isset($resultRegister) && $resultRegister == -1) {
                 echo "
                      <br>
                       <br>
@@ -127,7 +128,7 @@ session_start();
                            <strong>Authentication Failed!</strong> Check Your Credentials
                        </div>";
             }
-        }
+
         ?>
     </div>
 </section>

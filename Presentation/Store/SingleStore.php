@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    unset($_SESSION['USER_ID']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +46,7 @@
 
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 
@@ -63,18 +72,18 @@
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="javascript:void(0)">Shop</a></li>
+                                <li><a href="HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <?php
                                 if(isset($_SESSION['USER_ID'])){
-                                    echo "<li><a href=\"#\"><span class=\"ti-shopping-cart\" style='width: 500px;height: 50px;'></span></a></li>";
-                                    echo "<li><a href=\"#\">Log out</a></li>";
+                                    echo "<li><a href=\"#\"><i class='material-icons'>shopping_cart</i></a></li>";
+                                    echo "<li><a href=\"SingleStore.php?id=$_GET[id]&action=logout\"><i class='material-icons'>power_settings_new</i></a></li>";
                                 }else {
                                     echo " <li><a href=\"../Login/Login.php\">Login</a></li>
-                                <li><a href=\"../Login/Register.php\">Register</a></li>";
+                                           <li><a href=\"../Login/Register.php\">Register</a></li>";
                                 }
                                 ?>
 
@@ -126,8 +135,9 @@
                       </span>
                                 </div>
                                 <div class=\"product-detail add-to-cart\">
-                                    <a class=\"button\" href=\"#\">Add to cart</a>
+                                    <button class=\"button\" href=\"#\">Add to cart</button>
                                 </div>
+                                
                             </div>
                             <div class=\"product-detail-des mb-2\">
                                 <ul class=\"list-style-none disc\">
