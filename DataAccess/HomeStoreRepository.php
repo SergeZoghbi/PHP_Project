@@ -19,6 +19,8 @@ from WebProgramingDB.WEAPONS,WebProgramingDB.ITEM where WebProgramingDB.WEAPONS.
             "NAME" => $row["NAME"]));
     }
 
+    return $tempArray;
+
 }
 
 
