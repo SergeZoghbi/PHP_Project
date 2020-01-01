@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "../../BusinessLayer/HomeStoreManager.php";
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     unset($_SESSION['USER_ID']);
 }
@@ -36,7 +36,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .containerr {
+            min-width: 300px;
+            height: 200px;
+        }
 
+        /* resize images */
+        .containerr img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 
 </head>
 
@@ -82,13 +93,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../Images/santaM16.jpg" class="d-block w-100" alt="..." WIDTH="900" HEIGHT="800">
+            <img src="../Images/santaM16.jpg" class="d-block w-100"  WIDTH="900" HEIGHT="800">
         </div>
         <div class="carousel-item">
-            <img src="../Images/maxresdefault.jpg" class="d-block w-100" alt="..." WIDTH="900" HEIGHT="800">
+            <img src="../Images/maxresdefault.jpg" class="d-block w-100" WIDTH="900" HEIGHT="800">
         </div>
         <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="../Images/happy-xmas-from-jag-1.jpg" class="d-block w-100" WIDTH="900" HEIGHT="800">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -101,6 +112,51 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     </a>
 </div>
 
+<section class="case-studies popup-gallery page-section-ptb">
+    <div class="container">
+        <div class="row">
+
+<?php
+
+
+
+$randomWeapon = getRandomWeapons();
+
+foreach ($randomWeapon as $weapon) {
+    echo "      
+        <div class=\"col-md-4\">
+                <div class=\"studies-entry mt-3\">
+                    <div class=\"entry-image clearfix\" style='border:1px solid #e0dddd;'>
+                      <div class='containerr' >
+                        <img class=\"img-fluid containerr\" src=\"$weapon[PIC_URL]\" alt=\"$weapon[NAME]\" >
+                      </div>  
+                      <div class=\"entry-overlay\" >
+                            <a class=\"popup-img\" href=\"$weapon[PIC_URL]\" > <span class=\"ti-zoom-in\"></span></a>
+                       </div>
+                    </div>
+                    <div class=\"entry-detail\">
+                        <div class=\"entry-content mb-1\">
+                            <a>$weapon[NAME]</a>
+                        </div>
+                        <div class=\"entry-bottom mt-1 clearfix\">
+                            <ul class=\"entry-tag list-style-none\">
+                                <li>$weapon[PRICE]</li>
+                            </ul>
+                            <div class=\"entry-like float-right\">
+                                <a href=\"./SingleStore.php?id=$weapon[ID_ITEM]\"> <i class=\"material-icons\">more_horiz</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+}
+
+
+
+?>
+
+        </div>
+</section>
 
 
 <footer class="footer footer-topbar page-section-pt">
