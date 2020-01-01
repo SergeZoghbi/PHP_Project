@@ -41,4 +41,15 @@ function deleteItemFromCartDB($userID,$itemID,$quantityToDelete){
 }
 
 
+
+function submitShoppingCartDB($userID){
+
+    $conn = connect();
+    $sql = "call submitShoppingCart(".$userID.");";
+    $result = $conn->query($sql);
+
+
+}
+
+
 ?>
