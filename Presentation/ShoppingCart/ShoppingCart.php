@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    unset($_SESSION['USER_ID']);
-}
+include '../../BusinessLayer/ShoppingCartManager.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +14,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <meta name="author" content="potenzaglobalsolutions.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template</title>
-
     <link rel="shortcut icon"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico"/>
     <link rel="stylesheet" type="text/css"
@@ -29,24 +25,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css"/>
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/owl-carousel/owl.carousel.css"/>
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/magnific-popup/magnific-popup.css"/>
     <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css"/>
+    <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-        .containerr {
-            min-width: 300px;
-            height: 200px;
-        }
 
-        /* resize images */
-        .containerr img {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -72,15 +60,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <?php
                                 if (isset($_SESSION['USER_ID'])) {
-                                    echo "<li><a href=\"../ShoppingCart/ShoppingCart.php\"><i class='material-icons'>shopping_cart</i></a></li>";
-                                    echo "<li><a href=\"WeaponTypeStore.php?TYPE=$_GET[TYPE]&action=logout\"><i class='material-icons'>power_settings_new</i></a></li>";
+                                    echo "<li><a href=\"ShoppingCart.php\"><i class='material-icons'>shopping_cart</i></a></li>";
+                                    echo "<li><a href=\"../Store/HomeStore.php?action=logout\"><i class='material-icons'>power_settings_new</i></a></li>";
                                 } else {
                                     echo " <li><a href=\"../Login/Login.php\">Login</a></li>
-                                <li><a href=\"../Login/Register.php\">Register</a></li>";
+                                           <li><a href=\"../Login/Register.php\">Register</a></li>";
                                 }
                                 ?>
-
-
                             </ul>
                         </div>
                     </div>
@@ -91,47 +77,88 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 </header>
 
 
-<section class="case-studies popup-gallery page-section-ptb">
+<?php
+//
+//print_r(getItemsFromShoppingCart($_SESSION['USER_ID']));
+//?>
+<div class="pb-5">
     <div class="container">
         <div class="row">
-            <?php
-            include "../../BusinessLayer/WeaponsManager.php";
-
-            $arrayofWeapons = returnWeaponsFromLogic($_GET['TYPE']);
-
-            foreach ($arrayofWeapons as $weapon) {
-                echo "      
-        <div class=\"col-md-4\">
-                <div class=\"studies-entry mt-3\">
-                    <div class=\"entry-image clearfix\" style='border:1px solid #e0dddd;'>
-                      <div class='containerr' >
-                        <img class=\"img-fluid containerr\" src=\"$weapon[PIC_URL]\" alt=\"$weapon[NAME]\" >
-                      </div>  
-                      <div class=\"entry-overlay\" >
-                            <a class=\"popup-img\" href=\"$weapon[PIC_URL]\" > <span class=\"ti-zoom-in\"></span></a>
-                       </div>
-                    </div>
-                    <div class=\"entry-detail\">
-                        <div class=\"entry-content mb-1\">
-                            <a>$weapon[NAME]</a>
-                        </div>
-                        <div class=\"entry-bottom mt-1 clearfix\">
-                            <ul class=\"entry-tag list-style-none\">
-                                <li>$weapon[PRICE]</li>
-                            </ul>
-                            <div class=\"entry-like float-right\">
-                                <a href=\"./SingleStore.php?id=$weapon[ID]\"> <i class=\"material-icons\">more_horiz</i></a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="p-2 px-3 text-uppercase">Product</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Price</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Quantity</div>
+                            </th>
+                            <th scope="col" class="border-0 bg-light">
+                                <div class="py-2 text-uppercase">Remove</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" class="border-0">
+                                <div class="p-2">
+                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg"
+                                         alt="" width="70" class="img-fluid rounded shadow-sm">
+                                    <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle">Timex
+                                                Unisex Originals</a></h5><span
+                                                class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="border-0 align-middle"><strong>$79.00</strong></td>
+                            <td class="border-0 align-middle"><strong>3</strong></td>
+                            <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="p-2">
+                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg"
+                                         alt="" width="70" class="img-fluid rounded shadow-sm">
+                                    <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera
+                                                lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="align-middle"><strong>$79.00</strong></td>
+                            <td class="align-middle"><strong>3</strong></td>
+                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <div class="p-2">
+                                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg"
+                                         alt="" width="70" class="img-fluid rounded shadow-sm">
+                                    <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Gray Nike running
+                                                shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
+                                    </div>
+                                </div>
+                            <td class="align-middle"><strong>$79.00</strong></td>
+                            <td class="align-middle"><strong>3</strong></td>
+                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>";
-            }
-            ?>
-
+            </div>
         </div>
-</section>
-
+    </div>
+</div>
 
 <footer class="footer footer-topbar page-section-pt">
     <div class="container">
@@ -162,22 +189,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         </div>
 </footer>
 
-
 <script type="text/javascript"
         src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/jquery.min.js"></script>
 <script type="text/javascript"
         src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/popper.min.js"></script>
+
 <script type="text/javascript"
         src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/bootstrap.min.js"></script>
 <script type="text/javascript"
         src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/mega-menu/mega_menu.js"></script>
 <script type="text/javascript"
-        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/owl-carousel/owl.carousel.min.js"></script>
-<script type="text/javascript"
-        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript"
         src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
+
 
 </body>
 
 </html>
+
