@@ -2,11 +2,14 @@
 session_start();
 include '../../BusinessLayer/ShoppingCartManager.php';
 
-if(isset($_GET['action']) && isset($_GET['id_item'])){
+if (isset($_GET['action']) && isset($_GET['id_item']) && $_GET['action'] == 'removeItem') {
 
-    deleteItemFromCart($_SESSION['USER_ID'],$_GET['id_item'],1);
+    deleteItemFromCart($_SESSION['USER_ID'], $_GET['id_item'], 1);
 }
+if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
 
+    submitShoppingCart($_SESSION['USER_ID']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,27 +91,27 @@ if(isset($_GET['action']) && isset($_GET['id_item'])){
         <div class="row">
             <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
                 <div class="table-responsive">
-                    <table class="table">
+                    <?php
+                    $WeaponsInCart = getItemsFromShoppingCart($_SESSION['USER_ID']);
+                    if ($WeaponsInCart != -1) {
+                        echo "<table class=\"table\">
                         <thead>
                         <tr>
-                            <th scope="col" class="border-0 bg-light">
-                                <div class="p-2 px-3 text-uppercase">Product</div>
+                            <th scope=\"col\" class=\"border-0 bg-light\">
+                                <div class=\"p-2 px-3 text-uppercase\">Product</div>
                             </th>
-                            <th scope="col" class="border-0 bg-light">
-                                <div class="py-2 text-uppercase">Price</div>
+                            <th scope=\"col\" class=\"border-0 bg-light\">
+                                <div class=\"py-2 text-uppercase\">Price</div>
                             </th>
-                            <th scope="col" class="border-0 bg-light">
-                                <div class="py-2 text-uppercase">Quantity</div>
+                            <th scope=\"col\" class=\"border-0 bg-light\">
+                                <div class=\"py-2 text-uppercase\">Quantity</div>
                             </th>
-                            <th scope="col" class="border-0 bg-light">
-                                <div class="py-2 text-uppercase">Remove</div>
+                            <th scope=\"col\" class=\"border-0 bg-light\">
+                                <div class=\"py-2 text-uppercase\">Remove</div>
                             </th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <?php
-                        $WeaponsInCart = getItemsFromShoppingCart($_SESSION['USER_ID']);
-
+                        <tbody>";
                         foreach ($WeaponsInCart as $weapon) {
                             echo " 
                          <tr>
@@ -134,17 +137,46 @@ if(isset($_GET['action']) && isset($_GET['id_item'])){
                         <th scope=\"row\"></th> 
                      </tr>";
                         }
-                        ?>
+                        echo "</tbody>
+                                 </table>
+                         </div>
+                    </div>
+                   </div>  
 
-                        </tbody>
+        <div class=\"bg-white rounded shadow-sm\">
+        <div class=\"col-xs-6\">
+          <div class=\"bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold\">Order summary </div>
+          <div class=\"p-4\">
+            <p class=\"font-italic mb-4\">Shipping and additional costs are calculated based on values you have entered.</p>
+            <ul class=\"list-unstyled mb-4\">
+              <li class=\"d-flex justify-content-between py-3 border-bottom\"><strong class=\"text-muted\">Order Subtotal </strong><strong>$$weapon[TOTAL_PRICE]</strong></li>
+              <li class=\"d-flex justify-content-between py-3 border-bottom\"><strong class=\"text-muted\">Tax</strong><strong>11%</strong></li>
+              <li class=\"d-flex justify-content-between py-3 border-bottom\"><strong class=\"text-muted\">Total</strong>";
+                        $finalPrice = $weapon['TOTAL_PRICE'] + $weapon['TOTAL_PRICE'] * (11 / 100);
+                        echo "
+                <h5 class=\"font-weight-bold\">$$finalPrice</h5>
+              </li>
+            </ul><a href=\"ShoppingCart.php?action=checkout\" class=\"btn btn-light rounded-pill py-2 btn-block\">Procceed to checkout</a>
+          </div>
+        </div>
+        
+";
+                    } else {
 
-                    </table>
+                        echo "
+                           <div style='padding-bottom: 300px;'>
+                               <div class=\"alert alert-info\" role=\"alert\">
+                                   <h4 class=\"alert-heading\">Empty Shopping Cart</h4>
+                                  <p>You have nothing in your Shopping Cart</p>
+                                  </div>
+                            </div>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <footer class="footer footer-topbar page-section-pt">
     <div class="container">
         <div class="col-lg-3 col-md-2">
