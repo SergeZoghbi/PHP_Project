@@ -95,7 +95,7 @@ if (isset($_POST['addToCart']) && isset($_POST['qty']) && isset($_POST['idItem']
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <?php
                                 if (isset($_SESSION['USER_ID'])) {
-                                    echo "<li><a href=\"#\"><i class='material-icons'>shopping_cart</i></a></li>";
+                                    echo "<li><a href=\"../ShoppingCart/ShoppingCart.php\"><i class='material-icons'>shopping_cart</i></a></li>";
                                     echo "<li><a href=\"SingleStore.php?id=$_GET[id]&action=logout\"><i class='material-icons'>power_settings_new</i></a></li>";
                                 } else {
                                     echo " <li><a href=\"../Login/Login.php\">Login</a></li>
