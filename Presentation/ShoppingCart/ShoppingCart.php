@@ -1,6 +1,12 @@
 <?php
 session_start();
 include '../../BusinessLayer/ShoppingCartManager.php';
+
+if(isset($_GET['action']) && isset($_GET['id_item'])){
+
+    deleteItemFromCart($_SESSION['USER_ID'],$_GET['id_item'],1);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +59,7 @@ include '../../BusinessLayer/ShoppingCartManager.php';
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="HomeStore.php">Shop</a></li>
+                                <li><a href="../Store/HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
@@ -103,7 +109,7 @@ include '../../BusinessLayer/ShoppingCartManager.php';
                         <?php
                         $WeaponsInCart = getItemsFromShoppingCart($_SESSION['USER_ID']);
 
-                        foreach ($WeaponsInCart as $weapon){
+                        foreach ($WeaponsInCart as $weapon) {
                             echo " 
                          <tr>
                             <th scope=\"row\" class=\"border-0\">
@@ -112,20 +118,26 @@ include '../../BusinessLayer/ShoppingCartManager.php';
                                          alt=\"\" width=\"70\" class=\"img-fluid rounded shadow-sm\">
                                     <div class=\"ml-3 d-inline-block align-middle\">
                                         <h5 class=\"mb-0\"><a href=\"#\" class=\"text-dark d-inline-block align-middle\">$weapon[NAME]</a></h5><span
-                                                class=\"text-muted font-weight-normal font-italic d-block\">Category: Watches</span>
+                                                class=\"text-muted font-weight-normal font-italic d-block\">Category: $weapon[TYPE]</span>
                                     </div>
                                 </div>
                             </th>
                             <td class=\"border-0 align-middle\"><strong>$weapon[PRICE]</strong></td>
                             <td class=\"border-0 align-middle\"><strong>$weapon[QUANTITY]</strong></td>
-                            <td class=\"border-0 align-middle\"><a href=\"#\" class=\"text-dark\"><i class=\"fa fa-trash\"></i></a>
-                            </td>                        
+                            <td class=\"border-0 align-middle\"><a href=\"ShoppingCart.php?action=removeItem&id_item=$weapon[ID_ITEM]\" class=\"text-dark\"><i class=\"fa fa-trash\"></i></a>
+                            </td> 
                         </tr>
-                         ";
+                        <tr>
+                        <th scope=\"row\"></th> 
+                        <th scope=\"row\"></th> 
+                        <th scope=\"row\"></th> 
+                        <th scope=\"row\"></th> 
+                     </tr>";
                         }
                         ?>
 
                         </tbody>
+
                     </table>
                 </div>
             </div>
