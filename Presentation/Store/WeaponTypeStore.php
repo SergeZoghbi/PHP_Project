@@ -120,7 +120,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <li>$weapon[PRICE]</li>
                             </ul>
                             <div class=\"entry-like float-right\">
-                                <a href=\"./SingleStore.php?id=$weapon[ID]\"> <span class=\"ti-more\"></span></a>
+                                <a href=\"./SingleStore.php?id=$weapon[ID]\"> <i class=\"material-icons\">more_horiz</i></a>
                             </div>
                         </div>
                     </div>
