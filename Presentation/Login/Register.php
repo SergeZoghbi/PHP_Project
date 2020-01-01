@@ -98,23 +98,32 @@ if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD']) && isset($_POST['RE_P
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Password">Password* </label>
-                            <input class="form-control" type="password" placeholder="Password" name="PASSWORD">
+                            <input class="form-control" type="password" placeholder="Password" name="PASSWORD" id="pass">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Password">Re-enter Password*</label>
-                            <input class="form-control" type="password" placeholder="Password" name="RE_PASSWORD">
+                            <input class="form-control" type="password" placeholder="Password" name="RE_PASSWORD" id="repass">
+                            <div  id="wrongRetypePass" class="invalid-feedback">
+                                Please Re-type your password.
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="email">Email *</label>
-                            <input class="form-control" type="text" placeholder="Enter your email" name="EMAIL">
+                            <input class="form-control" type="text" placeholder="Enter your email" name="EMAIL" id="emailInput">
+                            <div  id="wrongEmail" class="invalid-feedback">
+                                Please type valid Email.
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Mobile phone *</label>
-                            <input id="phone" class="form-control" type="number" placeholder="Enter your mobile no"
+                            <input id="phone" class="form-control" placeholder="Enter your mobile no"
                                    name="PHONE">
+                            <div  id="wrongPhone" class="invalid-feedback">
+                                Please type valid Number.
+                            </div>
                         </div>
                     </div>
-                    <button class="button" type="submit"> Sign Up</button>
+                    <button class="button" type="submit" id="signup"> Sign Up</button>
                 </form>
             </div>
         </div>
@@ -191,3 +200,72 @@ footer -->
 </body>
 
 </html>
+<script>
+    $('#wrongEmail').hide();
+    $('#wrongRetypePass').hide();
+    $('#wrongPhone').hide();
+    $('#signup').prop("disabled", true);
+
+    let flagPhone = false;
+    let flagEmail = false;
+    let flagPass = false;
+
+
+
+    $(document).ready(function () {
+        function isEmail(email) {
+            let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+
+        function validatePhone(txtPhone) {
+            let filter = /^[0-9]*$/;
+            return filter.test(txtPhone);
+        }
+
+        function buttonDisable() {
+            console.log(flagPass,flagEmail,flagPhone);
+         if(flagPass && flagEmail && flagPhone){
+             $('#signup').attr("disabled", false);
+         }else
+         {
+             $('#signup').attr("disabled", true);
+         }
+        }
+
+        $("#emailInput").keyup(function () {
+            if(!isEmail($("#emailInput").val())){
+                $('#wrongEmail').show();
+                flagEmail = false;
+            }else {
+                $('#wrongEmail').hide();
+                flagEmail = true;
+            }
+            buttonDisable();
+        });
+
+        $('#repass').on('keyup', function () {
+            if ($('#pass').val() == $('#repass').val()) {
+                $('#wrongRetypePass').hide();
+                flagPass = true;
+            } else
+            {$('#wrongRetypePass').show();
+                flagPass = false;
+            }
+            buttonDisable();
+        });
+
+        $("#phone").keyup(function () {
+            if (!validatePhone($("#phone").val())) {
+                $('#wrongPhone').show();
+                flagPhone = false;
+            } else
+            {$('#wrongPhone').hide();
+                flagPhone = true;
+            }
+            buttonDisable();
+        });
+
+
+    });
+</script>
