@@ -83,7 +83,7 @@ if (isset($_POST['addToCart']) && isset($_POST['qty']) && isset($_POST['idItem']
                             <ul class="menu-logo">
                                 <li>
                                     <a><img id="logo_img"
-                                            src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/logo-dark.png"
+                                            src="../Images/LogoWeapon.png"  width="170" height="45"
                                             alt="logo"> </a>
                                 </li>
                             </ul>
@@ -112,7 +112,7 @@ if (isset($_POST['addToCart']) && isset($_POST['qty']) && isset($_POST['idItem']
     </div>
 </header>
 
-<section class="shop-single page-section-ptb">
+<section class="shop-single page-section-ptb" style="padding-bottom: 300px;">
     <div class="container">
         <?php
 
@@ -187,7 +187,34 @@ if (isset($_POST['addToCart']) && isset($_POST['qty']) && isset($_POST['idItem']
         ?>
     </div>
 </section>
+<footer class="footer footer-topbar page-section-pt">
+    <div class="container">
+        <div class="col-lg-3 col-md-2">
+            <img class="img-fluid"
+                 src="../Images/LogoWeapon.png"
+                 alt="">
+        </div>
 
+        <div class="copyright mt-6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-inline text-left">
+                            <li><a href="#">Terms & Conditions </a> &nbsp;&nbsp;&nbsp;|</li>
+                            <li><a href="#">API Use Policy </a> &nbsp;&nbsp;&nbsp;|</li>
+                            <li><a href="#">Privacy Policy </a> &nbsp;&nbsp;&nbsp;|</li>
+                            <li><a href="#">Cookies </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-right">
+                            <p>Copyright © 2020 Eagle Armory. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
 <!--=================================
 shop -->
 

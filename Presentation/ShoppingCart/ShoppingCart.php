@@ -57,7 +57,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
                             <ul class="menu-logo">
                                 <li>
                                     <a><img id="logo_img"
-                                            src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/logo-dark.png"
+                                            src="../Images/LogoWeapon.png"  width="170" height="45"
                                             alt="logo"> </a>
                                 </li>
                             </ul>
@@ -181,7 +181,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
     <div class="container">
         <div class="col-lg-3 col-md-2">
             <img class="img-fluid"
-                 src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/logo-footer.png"
+                 src="../Images/LogoWeapon.png"
                  alt="">
         </div>
 
@@ -198,14 +198,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'checkout') {
                     </div>
                     <div class="col-md-6">
                         <div class="text-right">
-                            <p>Copyright © 2020 SEO Solution. All Rights Reserved.</p>
+                            <p>Copyright © 2020 Eagle Armory. All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 </footer>
-
 <script type="text/javascript"
         src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/jquery.min.js"></script>
 <script type="text/javascript"

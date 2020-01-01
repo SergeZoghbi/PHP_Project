@@ -51,8 +51,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <ul class="menu-logo">
                                 <li>
                                     <a><img id="logo_img"
-                                            src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/logo-dark.png"
-                                            alt="logo"> </a>
+                                            src="../Images/LogoWeapon.png"
+                                            alt="logo" width="170" height="45"> </a>
                                 </li>
                             </ul>
                             <ul class="menu-links">
@@ -87,7 +87,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <div class="container">
         <div class="col-lg-3 col-md-2">
             <img class="img-fluid"
-                 src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/logo-footer.png"
+                 src="../Images/LogoWeapon.png"
                  alt="">
         </div>
 
@@ -104,7 +104,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     </div>
                     <div class="col-md-6">
                         <div class="text-right">
-                            <p>Copyright © 2020 SEO Solution. All Rights Reserved.</p>
+                            <p>Copyright © 2020 Eagle Armory. All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>
