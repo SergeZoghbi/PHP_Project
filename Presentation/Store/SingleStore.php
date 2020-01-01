@@ -135,8 +135,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                       </span>
                                 </div>
                                 <div class=\"product-detail add-to-cart\">
-                                    <a class=\"button\" href=\"#\">Add to cart</a>
+                                    <button class=\"button\" href=\"#\">Add to cart</button>
                                 </div>
+                                
                             </div>
                             <div class=\"product-detail-des mb-2\">
                                 <ul class=\"list-style-none disc\">
