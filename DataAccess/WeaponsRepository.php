@@ -1,5 +1,5 @@
 <?php
-include "Connection.php";
+include_once "Connection.php";
 
  function returnWeaponsByType($type){
 
