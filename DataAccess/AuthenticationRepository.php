@@ -5,8 +5,10 @@ function loginDB($username,$password){
 
     $conn = connect();
 
-    $sql = "select loginFct('".$username."','".$password."') as loggedIn";
-    $result = $conn->query($sql);
+    $sql = $conn->prepare("select loginFct(?,?) as loggedIn");
+    $sql->bind_param('ss',$username,$password);
+    $sql->execute();
+    $result = $sql->get_result();
 
     while($row = $result->fetch_assoc()){
         return $row['loggedIn'];
@@ -17,8 +19,11 @@ function loginDB($username,$password){
 function registerDB($username,$password,$email,$phone){
     $conn = connect();
 
-    $sql = "select registerFct('" . $username . "','" . $password . "','" . $email . "','" . $phone . "') as isRegistered";
-    $result = $conn->query($sql);
+
+    $sql = $conn->prepare("select registerFct(?,?,?,?) as isRegistered");
+    $sql->bind_param('sssi',$username,$password,$email,$phone);
+    $sql->execute();
+    $result = $sql->get_result();
 
     while ($row = $result->fetch_assoc()) {
         return $row['isRegistered'];
