@@ -17,4 +17,9 @@ function deleteItemFromCart($userID,$itemID,$quantityToDelete){
 }
 
 
+function submitShoppingCart($userID){
+    submitShoppingCartDB($userID);
+}
+
+
 ?>
