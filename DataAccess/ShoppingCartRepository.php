@@ -13,7 +13,8 @@ function getItemsFromShoppingCartDB($userID){
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
             array_push($tempArray, array( "NAME" => $row["NAME"] , "ID_ITEM" => $row["ID_ITEM"] , "PRICE" => $row["PRICE"],
-                                                "PIC_URL" => $row["PIC_URL"] , "QUANTITY" => $row["QUANTITY"] , "TOTAL_PRICE" => $row["TOTAL_PRICE"]));
+                                                "PIC_URL" => $row["PIC_URL"] , "QUANTITY" => $row["QUANTITY"] , "TOTAL_PRICE" => $row["TOTAL_PRICE"],
+                                                 "TYPE" => $row["TYPE"]));
         }
     } else {
         return -1;
