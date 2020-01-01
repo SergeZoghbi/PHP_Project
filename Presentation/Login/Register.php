@@ -128,13 +128,15 @@ if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD']) && isset($_POST['RE_P
             </div>
         </div>
         <?php
-      if(isset($resultRegister) && $resultRegister == -1) {
-                echo "
+
+      if(isset($resultRegister)) {
+          $str_arr = explode (",", $resultRegister);
+          echo "
                      <br>
                       <br>
                        <div class=\"alert alert-danger p-3 in\">
                            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">×</a>
-                           <strong>Authentication Failed!</strong> Check Your Credentials
+                           <strong>Authentication Failed!</strong> This $str_arr[1] already exist
                        </div>";
             }
 
