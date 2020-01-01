@@ -1,5 +1,7 @@
 <?php
 session_start();
+include "../../BusinessLayer/LoginManager.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -14,39 +16,22 @@ session_start();
     <meta name="author" content="potenzaglobalsolutions.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template</title>
-    <!-- Favicon -->
     <link rel="shortcut icon"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico"/>
-
-    <!-- bootstrap -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/bootstrap.min.css"/>
-
-    <!-- mega menu -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/mega-menu/mega_menu.css"/>
-
-    <!-- font awesome -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/font-awesome.min.css"/>
-
-    <!-- Themify icons -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css"/>
-
-    <!-- owl-carousel -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/owl-carousel/owl.carousel.css"/>
-
-    <!-- magnific-popup -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/magnific-popup/magnific-popup.css"/>
-
-    <!-- main style -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css"/>
-
-    <!-- Responsive style -->
     <link rel="stylesheet" type="text/css"
           href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css"/>
 
@@ -61,7 +46,6 @@ session_start();
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
                                     <a><img id="logo_img"
@@ -113,15 +97,10 @@ register-form  -->
 
         <?php
 
-        include "../../BusinessLayer/LoginManager.php";
-
         if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
 
             $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
-            if($result != -1){
-                $_SESSION['USER_ID'] = $result;
-            }
-            else {
+            if ($result == -1) {
                 echo " 
                       <br>
                       <br>
@@ -130,6 +109,7 @@ register-form  -->
                            <strong>Authentication Failed!</strong> Wrong Username or password !
                        </div>";
             }
+
         }
         ?>
     </div>
