@@ -72,7 +72,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="javascript:void(0)">Shop</a></li>
+                                <li><a href="HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>

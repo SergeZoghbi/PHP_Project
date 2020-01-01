@@ -12,33 +12,41 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template" />
-    <meta name="author" content="potenzaglobalsolutions.com" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="HTML5 Template"/>
+    <meta name="description" content="SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template"/>
+    <meta name="author" content="potenzaglobalsolutions.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>SEOhub - SEO, Marketing. Social Media, Multipurpose HTML5 Template</title>
 
-    <link rel="shortcut icon" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/mega-menu/mega_menu.css" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/magnific-popup/magnific-popup.css" />
-    <link rel="stylesheet" type="text/css" href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css" />
+    <link rel="shortcut icon"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/mega-menu/mega_menu.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/themify-icons.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/style.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/magnific-popup/magnific-popup.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/css/responsive.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<style>
-    .containerr {
-        min-width: 300px;
-        height: 200px;
-    }
+    <style>
+        .containerr {
+            min-width: 300px;
+            height: 200px;
+        }
 
-    /* resize images */
-    .containerr img {
-        width: 100%;
-        height: auto;
-    }
-</style>
+        /* resize images */
+        .containerr img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,16 +65,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="javascript:void(0)">Shop</a></li>
+                                <li><a href="HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Heavy">Heavy</a></li>
                                 <?php
-                                if(isset($_SESSION['USER_ID'])){
+                                if (isset($_SESSION['USER_ID'])) {
                                     echo "<li><a href=\"#\"><i class='material-icons'>shopping_cart</i></a></li>";
                                     echo "<li><a href=\"WeaponTypeStore.php?TYPE=$_GET[TYPE]&action=logout\"><i class='material-icons'>power_settings_new</i></a></li>";
-                                }else {
+                                } else {
                                     echo " <li><a href=\"../Login/Login.php\">Login</a></li>
                                 <li><a href=\"../Login/Register.php\">Register</a></li>";
                                 }
@@ -92,16 +100,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             $arrayofWeapons = returnWeaponsFromLogic($_GET['TYPE']);
 
             foreach ($arrayofWeapons as $weapon) {
-   echo "      
+                echo "      
         <div class=\"col-md-4\">
                 <div class=\"studies-entry mt-3\">
                     <div class=\"entry-image clearfix\" style='border:1px solid #e0dddd;'>
-                    <div class='containerr' >
+                      <div class='containerr' >
                         <img class=\"img-fluid containerr\" src=\"$weapon[PIC_URL]\" alt=\"$weapon[NAME]\" >
-                     </div>  
-                        <div class=\"entry-overlay\" >
+                      </div>  
+                      <div class=\"entry-overlay\" >
                             <a class=\"popup-img\" href=\"$weapon[PIC_URL]\" > <span class=\"ti-zoom-in\"></span></a>
-                        </div>
+                       </div>
                     </div>
                     <div class=\"entry-detail\">
                         <div class=\"entry-content mb-1\">
@@ -112,7 +120,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <li>$weapon[PRICE]</li>
                             </ul>
                             <div class=\"entry-like float-right\">
-                                <a onclick=\"window.location = './SingleStore.php?id=$weapon[ID]';\"> <span class=\"ti-more\"></span></a>
+                                <a href=\"./SingleStore.php?id=$weapon[ID]\"> <span class=\"ti-more\"></span></a>
                             </div>
                         </div>
                     </div>
@@ -155,13 +163,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 </footer>
 
 
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/popper.min.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/mega-menu/mega_menu.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/owl-carousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/jquery.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/popper.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/mega-menu/mega_menu.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/owl-carousel/owl.carousel.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript"
+        src="../../seohub%20seo%20marketing%20social%20media%20multipurpose%20html5/Template/js/custom.js"></script>
 
 </body>
 

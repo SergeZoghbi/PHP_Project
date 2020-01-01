@@ -2,11 +2,19 @@
 session_start();
 include "../../BusinessLayer/LoginManager.php";
 
+if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
+
+    $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
+   if($result != -1) {
+       $_SESSION['USER_ID'] = $result;
+        header('location:../Store/HomeStore.php');
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en" style="min-height: 100% !important;
-    height: 100%;">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -54,7 +62,7 @@ include "../../BusinessLayer/LoginManager.php";
                                 </li>
                             </ul>
                             <ul class="menu-links">
-                                <li><a href="javascript:void(0)">Shop</a></li>
+                                <li><a href="../Store/HomeStore.php">Shop</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Rifle">Rifles</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=SMG">SMG</a></li>
                                 <li><a href="../Store/WeaponTypeStore.php?TYPE=Pistols">Pistols</a></li>
@@ -69,12 +77,6 @@ include "../../BusinessLayer/LoginManager.php";
         </nav>
     </div>
 </header>
-
-<!--=================================
-header -->
-
-<!--=================================
-register-form  -->
 <section class="login-form page-section-ptb" style="padding-bottom: 250px">
     <div class="container">
         <div class="row">
@@ -94,22 +96,15 @@ register-form  -->
                 </form>
             </div>
         </div>
-
         <?php
-
-        if (isset($_POST['USERNAME']) && isset($_POST['PASSWORD'])) {
-
-            $result = login($_POST['USERNAME'], $_POST['PASSWORD']);
-            if ($result == -1) {
-                echo " 
+        if (isset($result) && $result == -1) {
+            echo " 
                       <br>
                       <br>
                        <div class=\"alert alert-danger p-3 in\">
                            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">×</a>
                            <strong>Authentication Failed!</strong> Wrong Username or password !
                        </div>";
-            }
-
         }
         ?>
     </div>
