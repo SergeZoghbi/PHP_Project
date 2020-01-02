@@ -151,8 +151,6 @@ foreach ($randomWeapon as $weapon) {
             </div>";
 }
 
-
-
 ?>
 
         </div>
