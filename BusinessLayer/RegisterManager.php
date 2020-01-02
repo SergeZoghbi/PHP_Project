@@ -1,4 +1,4 @@
-<?php
+W<?php
 
 include "../../DataAccess/AuthenticationRepository.php";
 
